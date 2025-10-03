@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Inquiry Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #1a4a8d;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 40px;
+            color: #1a4a8d;
+        }
+        
+        .school-name {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .motto {
+            font-style: italic;
+            margin-top: 5px;
+            font-size: 18px;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back {
+            background-color: #95a5a6;
+            color: white;
+        }
+        
+        .btn-back:hover {
+            background-color: #7f8c8d;
+        }
+        
+        .btn-submit {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .btn-submit:hover {
+            background-color: #27ae60;
+        }
+        
+        .btn-print {
+            background-color: #3498db;
+            color: white;
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        .btn-print:hover {
+            background-color: #2980b9;
+        }
+        
+        .notification {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .receipt {
+            display: none;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1a4a8d;
+            padding-bottom: 20px;
+        }
+        
+        .receipt-details {
+            margin-bottom: 30px;
+        }
+        
+        .receipt-row {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .receipt-label {
+            font-weight: bold;
+            width: 150px;
+        }
+        
+        .receipt-value {
+            flex: 1;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        /* Print-specific styles to ensure receipt fits on one page */
+        @media print {
+            body * {
+                visibility: hidden;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .receipt, .receipt * {
+                visibility: visible;
+            }
+            
+            .receipt {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                padding: 20px;
+                margin: 0;
+                border-radius: 0;
+                page-break-inside: avoid;
+                page-break-after: avoid;
+                page-break-before: avoid;
+            }
+            
+            .receipt-header {
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+                border-bottom: 2px solid #1a4a8d;
+            }
+            
+            .receipt-details {
+                margin-bottom: 20px;
+            }
+            
+            .receipt-row {
+                margin-bottom: 8px;
+                padding-bottom: 8px;
+                page-break-inside: avoid;
+            }
+            
+            .btn-print {
+                display: none;
+            }
+            
+            /* Ensure no page breaks within the receipt */
+            .receipt-header, .receipt-details, .receipt-row {
+                break-inside: avoid;
+            }
+            
+            /* Control font sizes for print */
+            .school-name {
+                font-size: 24px;
+            }
+            
+            .motto {
+                font-size: 16px;
+            }
+            
+            .receipt h2 {
+                font-size: 20px;
+                margin: 10px 0;
+            }
+            
+            .receipt p {
+                font-size: 14px;
+                margin: 8px 0;
+            }
+            
+            .receipt-label, .receipt-value {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">WB</div>
+                <div>
+                    <div class="school-name">WACHORO BOYS HIGH SCHOOL</div>
+                    <div class="motto">Education for a Brighter Future</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="form-container">
+            <h2>Inquiry Form</h2>
+            <p>Please fill out the form below and we will respond to your inquiry as soon as possible.</p>
+            
+            <div class="notification">
+                <p><strong>Note:</strong> Response to your request will be sent via email or WhatsApp within 24-48 hours.</p>
+            </div>
+            
+            <form id="inquiryForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="idNumber">ID Number <span class="required">*</span></label>
+                    <input type="text" id="idNumber" name="idNumber" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description of Inquiry <span class="required">*</span></label>
+                    <textarea id="description" name="description" placeholder="Please describe your inquiry in detail..." required></textarea>
+                </div>
+                
+                <div class="button-group">
+                    
+                    <button type="submit" class="btn btn-submit">Submit Inquiry</button>
+                </div>
+            </form>
+            
+            <div id="receipt" class="receipt">
+                <div class="receipt-header">
+                    <div class="logo-container">
+                        <div class="logo">WB</div>
+                        <div>
+                            <div class="school-name">WACHORO BOYS HIGH SCHOOL</div>
+                            <div class="motto">Education for a Brighter Future</div>
+                        </div>
+                    </div>
+                    <h2>Inquiry Receipt</h2>
+                    <p>Reference #: <span id="referenceNumber"></span></p>
+                    <p>Date: <span id="receiptDate"></span></p>
+                </div>
+                
+                <div class="receipt-details">
+                    <div class="receipt-row">
+                        <div class="receipt-label">Full Name:</div>
+                        <div class="receipt-value" id="receiptFullName"></div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">ID Number:</div>
+                        <div class="receipt-value" id="receiptIdNumber"></div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">Email Address:</div>
+                        <div class="receipt-value" id="receiptEmail"></div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">Phone Number:</div>
+                        <div class="receipt-value" id="receiptPhone"></div>
+                    </div>
+                    <div class="receipt-row">
+                        <div class="receipt-label">Description:</div>
+                        <div class="receipt-value" id="receiptDescription"></div>
+                    </div>
+                </div>
+                
+                <p><strong>Note:</strong> Response to your request will be sent via email or WhatsApp within 24-48 hours.</p>
+                
+                <button class="btn btn-print" onclick="printReceipt()">Print Receipt</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 Wachoro Boys High School. All rights reserved.</p>
+        </footer>
+    </div>
+<script>
+    // Update the form submission in your frontend
+document.getElementById('inquiryForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  // Show loading state
+  const submitBtn = this.querySelector('.btn-submit');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Submitting...';
+  submitBtn.disabled = true;
+
+  // Get form values
+  const formData = {
+    fullName: document.getElementById('fullName').value,
+    idNumber: document.getElementById('idNumber').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    description: document.getElementById('description').value,
+    responseMethod: 'email' // You can add a select field for this
+  };
+  
+  try {
+    const response = await fetch('/api/inquiries',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      // Generate receipt with data from backend
+      document.getElementById('receiptFullName').textContent = formData.fullName;
+      document.getElementById('receiptIdNumber').textContent = formData.idNumber;
+      document.getElementById('receiptEmail').textContent = formData.email;
+      document.getElementById('receiptPhone').textContent = formData.phone;
+      document.getElementById('receiptDescription').textContent = formData.description;
+      
+      // Use reference number from backend
+      document.getElementById('referenceNumber').textContent = result.data.receipt.referenceNumber;
+      
+      const now = new Date();
+      document.getElementById('receiptDate').textContent = now.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      
+      // Show receipt
+      document.getElementById('receipt').style.display = 'block';
+      document.getElementById('receipt').scrollIntoView({ behavior: 'smooth' });
+      
+      // Reset form
+      document.getElementById('inquiryForm').reset();
+      
+      // Show success message
+      alert('✅ Inquiry submitted successfully! Check your email for confirmation.');
+    } else {
+      alert('❌ Error: ' + result.message);
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    alert('❌ Network error. Please check your connection and try again.');
+  } finally {
+    // Reset button state
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+  }
+});
+    </script>
+</body>
+</html>

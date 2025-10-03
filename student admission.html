@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Admission Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #adcdfd;
+            color: #060607;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3a90e6, #e67ad4, #fdbb2d);
+            color: rgb(0, 0, 0);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #1a2a6c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        h3 {
+            color: #b21f1f;
+            margin: 15px 0 10px;
+        }
+        
+        .requirements-list, .rules-list {
+            list-style-type: none;
+        }
+        
+        .requirements-list li, .rules-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .requirements-list li:before, .rules-list li:before {
+            content: "•";
+            color: #fdbb2d;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .date-info {
+            background: #e8f4fc;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #1a2a6c;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ddda42, #f53ba7);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #b21f1f, #1a2a6c);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        .important-note {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #fdbb2d;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Wachoro Admission Portal</h1>
+            <p>Your first step towards an exceptional educational journey</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Admission Requirements</h2>
+            <p>To be considered for admission, applicants must meet the following minimum requirements:</p>
+            
+            <ul class="requirements-list">
+                <li>Completed junior secondary education with a recognized junior secondary school certificate</li>
+                <li>Minimum grade of C+ and above</li>
+                <li>Official certificate from all previously attended institutions</li>
+                <li>Proof of English language proficiency (for non-native speakers)
+                    
+                </li>
+                <li>Completed application form with all required documents</li>
+                <li>Application fee payment receipt</li>
+               
+            </ul>
+            
+            <div class="date-info">
+                <h3>Admission Period</h3>
+                <p>Admissions are offered every year from <strong>January 6 to January 15</strong>.</p>
+                <p>Applications submitted outside this period will not be considered for the current academic year.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Rules for Admission</h2>
+            <p>Please carefully review the following rules and regulations regarding the admission process:</p>
+            
+            <ol class="rules-list">
+                <li>All applications must be submitted through the official online portal. Paper applications will not be accepted.</li>
+                
+                <li>Submitted documents become the property of the school and will not be returned.</li>
+                <li>Providing false information or forged documents will result in immediate disqualification and may lead to legal action.</li>
+                <li>Admission decisions are final and cannot be appealed except in cases of procedural error.</li>
+                <li>Accepted students must confirm their enrollment by the specified deadline and pay the required enrollment fee.</li>
+                <li>The school reserves the right to revoke admission if final grades do not meet the minimum requirements.</li>
+                <li>Deferral of admission may be granted under exceptional circumstances, subject to approval by the admissions committee.</li>
+                <li>All admitted students must undergo a mandatory orientation program before the beginning of classes.</li>
+                <li>The school maintains a zero-tolerance policy towards any form of discrimination in the admission process.</li>
+            
+            </ol>
+            
+            <div class="important-note">
+                <p><strong>Important:</strong> These rules are subject to change. Please check our website regularly for updates.</p>
+            </div>
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <h2>Admission Letter</h2>
+            <p>If you comply to the above rules, you can download your official admission letter here:</p>
+            
+            <button class="download-btn" onclick="downloadLetter()">Download Admission Letter</button>
+            
+            <p>This letter must be duly filled and presented during the admission for checking requrements.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Wachoro Admission Portal. All rights reserved.</p>
+            <p>Contact: admissions@wachoro.ac.ke | Phone: +1 (254) 704 160 227</p>
+        </div>
+    </footer>
+
+    <script>
+        function downloadLetter() {
+            // Create a simple PDF download simulation
+            const link = document.createElement('a');
+            link.href = '#'; // In a real scenario, this would point to the actual PDF
+            link.download = 'Admission_Letter.pdf';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show alert (in real scenario, this would be handled by the actual download)
+            alert('Admission letter download initiated! In a real application, this would download your official admission letter.');
+        }
+    </script>
+</body>
+</html>

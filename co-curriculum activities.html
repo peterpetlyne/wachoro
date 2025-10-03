@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Co-Curricular Activities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .activity-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #2a4c7d;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .activity-card h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .activity-card p {
+            color: #666;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+        
+        .activity-icon {
+            font-size: 2rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .performance-badge {
+            background: #f0f5ff;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: bold;
+            color: #2a4c7d;
+            border: 1px dashed #2a4c7d;
+        }
+        
+        .performance-section {
+            margin: 3rem 0;
+        }
+        
+        .performance {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .performance h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .category {
+            margin-bottom: 2rem;
+        }
+        
+        .category h3 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .activity-list {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .activity-list li {
+            background: #f0f5ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #2a4c7d;
+            border: 1px solid #d0deff;
+        }
+        
+        .trophy-case {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .trophy {
+            background: linear-gradient(135deg, #fdbb2d, #f9d423);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #1a2a6c;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .trophy i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .trophy .count {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .trophy .label {
+            font-size: 0.8rem;
+        }
+        
+        .achievements {
+            margin: 2rem 0;
+        }
+        
+        .achievements ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+        
+        .achievements li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .achievements li:before {
+            content: "🏆";
+            position: absolute;
+            left: 0;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .info-box h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .calendar {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .calendar h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .event {
+            display: flex;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .event-date {
+            background: #2a4c7d;
+            color: white;
+            padding: 0.8rem;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 70px;
+            margin-right: 1rem;
+        }
+        
+        .event-date .day {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .event-info {
+            flex-grow: 1;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .trophy {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">"Excellence in Education and Character Development"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Co-Curricular Activities Program</h2>
+            <p>At Wachoro Boys High School, we believe in holistic education that balances academic excellence with co-curricular activities. Our program is designed to develop talents, build character, and foster teamwork among students.</p>
+        </section>
+        
+        <section class="performance">
+            <h2>Activities by Category</h2>
+            
+            <div class="category">
+                <h3>Ball Games</h3>
+                <ul class="activity-list">
+                    <li>Football</li>
+                    <li>Volleyball</li>
+                    <li>Netball</li>
+                    <li>Handball</li>
+                    <li>Rugby</li>
+                </ul>
+            </div>
+            
+            <div class="category">
+                <h3>Athletics</h3>
+                <ul class="activity-list">
+                    <li>Marathon</li>
+                    <li>Discus</li>
+                    <li>Javelin</li>
+                    <li>Shot Put</li>
+                    <li>Triple Jump</li>
+                    <li>Long Jump</li>
+                </ul>
+            </div>
+            
+            <div class="category">
+                <h3>Other Activities</h3>
+                <ul class="activity-list">
+                    <li>Table Tennis</li>
+                    <li>Lawn Tennis</li>
+                    <li>Badminton</li>
+                    <li>Chess</li>
+                    <li>Music & Drama</li>
+                    <li>Debate Club</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="performance-section">
+            <div class="performance">
+                <h2>Performance in Co-Curricular Activities</h2>
+                <p>Wachoro Boys High School has consistently excelled in various co-curricular activities at both regional and national levels.</p>
+                
+                <div class="trophy-case">
+                    <div class="trophy">
+                        <i class="fas fa-trophy"></i>
+                        <div class="count">12</div>
+                        <div class="label">National Titles</div>
+                    </div>
+                    
+                    <div class="trophy">
+                        <i class="fas fa-medal"></i>
+                        <div class="count">36</div>
+                        <div class="label">Regional Titles</div>
+                    </div>
+                    
+                    <div class="trophy">
+                        <i class="fas fa-award"></i>
+                        <div class="count">24</div>
+                        <div class="label">Individual Awards</div>
+                    </div>
+                </div>
+                
+                <div class="achievements">
+                    <h3>Recent Achievements</h3>
+                    <ul>
+                        <li>1st Place in National Science Congress 2023</li>
+                        <li>National Football Champions (Secondary Schools) 2022</li>
+                        <li>Regional Athletics Champions 2021, 2022, 2023</li>
+                        <li>Best Drama Group in Regional Festival 2023</li>
+                        <li>2nd Place in National Chess Championship 2022</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="calendar">
+            <h2>Upcoming Events</h2>
+            
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">15</div>
+                    <div class="month">OCT</div>
+                </div>
+                <div class="event-info">
+                    <h3>Regional Athletics Competition</h3>
+                    <p>Nairobi Stadium, 9:00 AM</p>
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">28</div>
+                    <div class="month">OCT</div>
+                </div>
+                <div class="event-info">
+                    <h3>Music Festival Finals</h3>
+                    <p>School Auditorium, 2:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">5</div>
+                    <div class="month">NOV</div>
+                </div>
+                <div class="event-info">
+                    <h3>National Science Congress</h3>
+                    <p>Kenyatta University, 8:00 AM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h2>Our Philosophy on Co-Curricular Activities</h2>
+            <p>At Wachoro Boys High School, we believe that co-curricular activities are essential for developing well-rounded individuals. These activities complement academic learning by fostering teamwork, leadership, discipline, and creativity. Our program is designed to help students discover and nurture their talents while building character and resilience.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wachoro Boys High School | P.O. Box 12345, Wachoro | Phone: +254 712 345 678 | Email: info@wachoroboys.sc.ke</p>
+            <p>"Excellence in Education and Character Development"</p>
+            <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

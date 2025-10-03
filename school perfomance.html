@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Academic Performance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8599ec, #060607, #fdbb2d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-name {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .performance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a2a6c;
+        }
+        
+        .stat-label {
+            color: #666;
+        }
+        
+        .results-image {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .results-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .caption {
+            margin-top: 0.5rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .progress-bar {
+            height: 25px;
+            background: #e9ecef;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #1a2a6c, #2a4c7d);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .achievements {
+            margin: 2rem 0;
+        }
+        
+        .achievements ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+        
+        .achievements li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .achievements li:before {
+            content: "✓";
+            color: #28a745;
+            position: absolute;
+            left: 0;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">Excellence in Education and Character Development</p>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Academic Excellence</h2>
+            <p>Wachoro Boys High School has consistently demonstrated outstanding academic performance, with our students achieving remarkable results in national examinations and an impressive transition rate to universities.</p>
+        </section>
+        
+        <div class="performance-grid">
+            <div class="card">
+                <h2>University Transition Rate</h2>
+                <p>Over the past five years, our students have maintained an exceptional university transition rate:</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">94%</div>
+                        <div class="stat-label">2023</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">92%</div>
+                        <div class="stat-label">2022</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">91%</div>
+                        <div class="stat-label">2021</div>
+                    </div>
+                </div>
+                
+                <h3>2023 University Placement</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 94%;">94%</div>
+                </div>
+                <p>Public Universities: 78%</p>
+                <p>Private Universities: 16%</p>
+            </div>
+            
+            <div class="card">
+                <h2>Examination Performance</h2>
+                <p>Our students have consistently outperformed the national average in KCSE examinations:</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">9.2</div>
+                        <div class="stat-label">Mean Grade 2023</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">87%</div>
+                        <div class="stat-label">A-C+ 2023</div>
+                    </div>
+                </div>
+                
+                <h3>Grade Distribution 2023</h3>
+                <p>A: 12%</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 12%;">12%</div>
+                </div>
+                
+                <p>A-: 18%</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 18%;">18%</div>
+                </div>
+                
+                <p>B+: 25%</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 25%;">25%</div>
+                </div>
+                
+                <p>B: 32%</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 32%;">32%</div>
+                </div>
+            </div>
+        </div>
+        
+        <section class="results-image">
+            <h2>2023 Performance Highlights</h2>
+             <img src="images\welcome.jpg" alt="2023/2024 KCSE performance" />
+            <p class="caption">Visual representation of our 2023 KCSE performance and university transition rates</p>
+        </section>
+        
+        <section class="card achievements">
+            <h2>Notable Achievements</h2>
+            <ul>
+                <li>Ranked among the top 50 schools nationally for 5 consecutive years</li>
+                <li>97% of our graduates qualify for university placement</li>
+                <li>15 students achieved straight A's in the 2023 KCSE examinations</li>
+                <li>Recognized by the Ministry of Education for consistent improvement in sciences</li>
+                <li>Our alumni are studying in prestigious universities worldwide</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Wachoro Boys High School | P.O. Box 12345, Wachoro | Phone: +254 712 345 678</p>
+        <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+    </footer>
+</body>
+</html>

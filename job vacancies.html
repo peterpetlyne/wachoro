@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Job Vacancies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .vacancies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 1100px) {
+            .vacancies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .vacancy-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #2a4c7d;
+        }
+        
+        .vacancy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vacancy-card h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .vacancy-card h3 {
+            color: #1a2a6c;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        .requirements {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .requirements li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .requirements li:before {
+            content: "•";
+            color: #fdbb2d;
+            font-weight: bold;
+            position: absolute;
+            left: 1rem;
+        }
+        
+        .vacancy-icon {
+            font-size: 2.5rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .application-process {
+            background: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #fdbb2d;
+        }
+        
+        .application-process h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+        }
+        
+        .process-steps {
+            list-style-type: none;
+            padding-left: 0;
+            counter-reset: step-counter;
+        }
+        
+        .process-steps li {
+            margin-bottom: 1.5rem;
+            padding-left: 4rem;
+            position: relative;
+            min-height: 40px;
+        }
+        
+        .process-steps li:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            background: #2a4c7d;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .info-box h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2a4c7d;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1a2a6c;
+        }
+        
+        .btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .benefits {
+            margin: 2rem 0;
+        }
+        
+        .benefits h3 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 1rem;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .vacancies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .process-steps li {
+                padding-left: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">"Education for a brighter future"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Employment Opportunities</h2>
+            <p>Join our team of dedicated educators and staff at Wachoro Boys High School. We are committed to providing quality education and are looking for passionate professionals to help us achieve our mission.</p>
+        </section>
+        
+        <div class="vacancies-grid">
+            <div class="vacancy-card">
+                <div class="vacancy-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h2>Mathematics Teacher</h2>
+                <p>We are seeking a qualified and enthusiastic Mathematics Teacher to join our dedicated faculty. The ideal candidate will have a passion for teaching and the ability to inspire students to excel in mathematics.</p>
+                
+                <h3>Qualifications & Requirements</h3>
+                <ul class="requirements">
+                    <li>Bachelor's degree in Education with a specialization in Mathematics</li>
+                    <li>Registered with the Teachers Service Commission (TSC)</li>
+                    <li>Minimum of 3 years teaching experience in a secondary school</li>
+                    <li>Strong knowledge of the Kenyan secondary education curriculum</li>
+                    <li>Excellent communication and interpersonal skills</li>
+                    <li>Ability to use technology to enhance teaching and learning</li>
+                </ul>
+                
+                <h3>Responsibilities</h3>
+                <ul class="requirements">
+                    <li>Prepare lesson plans and teach mathematics to students</li>
+                    <li>Develop and implement engaging instructional strategies</li>
+                    <li>Assess and evaluate student progress regularly</li>
+                    <li>Participate in curriculum development programs</li>
+                    <li>Provide guidance and counseling to students</li>
+                    <li>Participate in co-curricular activities</li>
+                </ul>
+            </div>
+            
+            <div class="vacancy-card">
+                <div class="vacancy-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h2>Physics Teacher</h2>
+                <p>We are looking for a passionate Physics Teacher to join our science department. The ideal candidate will have a strong background in physics and the ability to make complex concepts understandable and exciting for students.</p>
+                
+                <h3>Qualifications & Requirements</h3>
+                <ul class="requirements">
+                    <li>Bachelor's degree in Education with a specialization in Physics</li>
+                    <li>Registered with the Teachers Service Commission (TSC)</li>
+                    <li>Minimum of 3 years teaching experience in a secondary school</li>
+                    <li>Thorough knowledge of physics concepts and principles</li>
+                    <li>Experience in laboratory management and safety protocols</li>
+                    <li>Ability to inspire students to pursue STEM careers</li>
+                </ul>
+                
+                <h3>Responsibilities</h3>
+                <ul class="requirements">
+                    <li>Teach physics to secondary school students</li>
+                    <li>Prepare and conduct physics practical experiments</li>
+                    <li>Develop instructional materials and assessment tools</li>
+                    <li>Maintain physics laboratory equipment and ensure safety</li>
+                    <li>Guide students in science projects and competitions</li>
+                    <li>Participate in departmental meetings and school events</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="benefits">
+            <h3>Benefits of Working at Wachoro Boys High School</h3>
+            <ul class="benefits-list">
+                <li>Competitive salary package commensurate with experience</li>
+                <li>Medical insurance coverage</li>
+                <li>Housing allowance or accommodation provided</li>
+                <li>Professional development opportunities</li>
+                <li>Supportive work environment</li>
+                <li>Opportunities for career advancement</li>
+                <li>Paid school holidays</li>
+            </ul>
+        </div>
+        
+        <div class="application-process">
+            <h3>Application Process</h3>
+            <ol class="process-steps">
+                <li>
+                    <strong>Prepare Application Documents</strong>
+                    <p>Prepare your application letter, CV, copies of academic and professional certificates, and TSC registration certificate.</p>
+                </li>
+                <li>
+                    <strong>Submit Application</strong>
+                    <p>Email your application to the address provided below. Use the position you are applying for as the subject of your email.</p>
+                </li>
+                <li>
+                    <strong>Application Review</strong>
+                    <p>Our recruitment team will review all applications and contact shortlisted candidates within two weeks of application deadline.</p>
+                </li>
+                <li>
+                    <strong>Interviews</strong>
+                    <p>Shortlisted candidates will be invited for an interview and possibly a demonstration lesson.</p>
+                </li>
+                <li>
+                    <strong>Offer</strong>
+                    <p>Successful candidates will receive an offer letter and details about the next steps.</p>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="info-box">
+            <h2>Our Commitment to Excellence</h2>
+            <p>At Wachoro Boys High School, we are committed to providing quality education and a supportive working environment for our staff. We value dedication, innovation, and a passion for teaching.</p>
+        </div>
+        
+        <div class="contact-section">
+            <h2>How to Apply</h2>
+            <p>Interested and qualified candidates should submit their applications via email to:</p>
+            <p style="font-size: 1.2rem; font-weight: bold; margin: 1rem 0;">hr@wachoroboys.sc.ke</p>
+            <p>Application deadline: 30th November, 2023</p>
+            <p>Only shortlisted candidates will be contacted.</p>
+            <a href="mailto:hr@wachoroboys.sc.ke" class="btn"><i class="fas fa-envelope"></i> Send Application</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wachoro Boys High School | P.O. Box 12345, Wachoro | Phone: +254 712 345 678 | Email: info@wachoroboys.sc.ke</p>
+            <p>"Education for a brighter future"</p>
+            <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

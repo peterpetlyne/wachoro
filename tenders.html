@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Tender Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tender-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            border-left: 5px solid #2a4c7d;
+        }
+        
+        .tender-card h2 {
+            color: #1a2a6c;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .tender-icon {
+            font-size: 2.5rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .tender-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .detail-item {
+            background: #f0f5ff;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 3px solid #2a4c7d;
+        }
+        
+        .detail-item h4 {
+            color: #1a2a6c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirements {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .requirements li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .requirements li:before {
+            content: "•";
+            color: #fdbb2d;
+            font-weight: bold;
+            position: absolute;
+            left: 1rem;
+        }
+        
+        .application-process {
+            background: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #fdbb2d;
+        }
+        
+        .application-process h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+        }
+        
+        .process-steps {
+            list-style-type: none;
+            padding-left: 0;
+            counter-reset: step-counter;
+        }
+        
+        .process-steps li {
+            margin-bottom: 1.5rem;
+            padding-left: 4rem;
+            position: relative;
+            min-height: 40px;
+        }
+        
+        .process-steps li:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            background: #2a4c7d;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .info-box h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2a4c7d;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1a2a6c;
+        }
+        
+        .btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .downloads {
+            margin: 2rem 0;
+        }
+        
+        .downloads h3 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+        }
+        
+        .download-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .tender-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .process-steps li {
+                padding-left: 3rem;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">"Education for a brighter future"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Tender Opportunities</h2>
+            <p>Wachoro Boys High School invites qualified and interested suppliers to apply for our available tender opportunities. We are committed to transparency, fairness, and value for money in all our procurement processes.</p>
+        </section>
+        
+        <div class="tender-card">
+            <div class="tender-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <h2>Food Supply Tender</h2>
+            <p>Wachoro Boys High School is seeking qualified suppliers to provide food supplies for the academic year 2024. The successful bidder will be responsible for supplying quality food items to our school kitchen.</p>
+            
+            <div class="tender-details">
+                <div class="detail-item">
+                    <h4>Tender Number</h4>
+                    <p>WBHS/F/001/2023</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4>Closing Date</h4>
+                    <p>15th December, 2023 at 10:00 AM</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4>Tender Opening</h4>
+                    <p>15th December, 2023 at 11:00 AM</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4>Contract Period</h4>
+                    <p>1st January, 2024 - 31st December, 2024</p>
+                </div>
+            </div>
+            
+            <h3>Items Required</h3>
+            <ul class="requirements">
+                <li>Fresh vegetables and fruits</li>
+                <li>Cereals (maize, rice, wheat)</li>
+                <li>Dairy products (milk, yogurt)</li>
+                <li>Meat and poultry products</li>
+                <li>Cooking oil</li>
+                <li>Bread and bakery products</li>
+                <li>Other dry food supplies</li>
+            </ul>
+            
+            <h3>Requirements for Applicants</h3>
+            <ul class="requirements">
+                <li>Valid business registration certificate</li>
+                <li>Valid tax compliance certificate</li>
+                <li>Proof of experience in similar supplies</li>
+                <li>Certificate of incorporation (for companies)</li>
+                <li>KRA PIN certificate</li>
+                <li>Quality assurance certification</li>
+                <li>Recommendation letters from previous clients</li>
+            </ul>
+            
+            <div class="downloads">
+                <h3>Tender Documents</h3>
+                <div class="download-buttons">
+                    <a href="#" class="btn"><i class="fas fa-file-pdf"></i> Download Tender Notice</a>
+                    <a href="#" class="btn"><i class="fas fa-file-alt"></i> Download Requirements</a>
+                    <a href="#" class="btn"><i class="fas fa-file-excel"></i> Download Pricing Sheet</a>
+                </div>
+            </div>
+            
+            <div class="application-process">
+                <h3>Application Process</h3>
+                <ol class="process-steps">
+                    <li>
+                        <strong>Obtain Tender Documents</strong>
+                        <p>Download all tender documents from our website or collect them from the school office.</p>
+                    </li>
+                    <li>
+                        <strong>Prepare Your Bid</strong>
+                        <p>Complete all required documents and provide all necessary supporting materials.</p>
+                    </li>
+                    <li>
+                        <strong>Submit Your Bid</strong>
+                        <p>Submit your sealed bid in the tender box at the school office before the closing date and time.</p>
+                    </li>
+                    <li>
+                        <strong>Tender Opening</strong>
+                        <p>Attend the tender opening session at the specified date and time.</p>
+                    </li>
+                    <li>
+                        <strong>Evaluation</strong>
+                        <p>Our tender committee will evaluate all bids based on specified criteria.</p>
+                    </li>
+                    <li>
+                        <strong>Award Notification</strong>
+                        <p>Successful bidders will be notified within 14 days after tender opening.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h2>Our Procurement Principles</h2>
+            <p>At Wachoro Boys High School, we adhere to the principles of transparency, fairness, competition, and value for money in all our procurement processes. We are committed to ethical business practices and equal opportunity for all qualified suppliers.</p>
+        </div>
+        
+        <div class="contact-section">
+            <h2>For More Information</h2>
+            <p>For any inquiries regarding this tender, please contact our procurement office:</p>
+            <p>Email: procurement@wachoroboys.sc.ke | Phone: +254 712 345 681</p>
+            <p>Office Hours: Monday-Friday, 8:00 AM - 4:00 PM</p>
+            <p>Physical Address: Wachoro Boys High School, Procurement Office, Main Administration Block</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wachoro Boys High School | P.O. Box 12345, Wachoro | Phone: +254 712 345 678 | Email: info@wachoroboys.sc.ke</p>
+            <p>"Education for a brighter future"</p>
+            <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

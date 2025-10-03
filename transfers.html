@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Transfer Policy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 1100px) {
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .policy-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #2a4c7d;
+        }
+        
+        .policy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .policy-card h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .policy-card h3 {
+            color: #1a2a6c;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        .requirements {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .requirements li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .requirements li:before {
+            content: "•";
+            color: #fdbb2d;
+            font-weight: bold;
+            position: absolute;
+            left: 1rem;
+        }
+        
+        .policy-icon {
+            font-size: 2.5rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .note-box {
+            background: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #fdbb2d;
+        }
+        
+        .note-box h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+        }
+        
+        .process-steps {
+            list-style-type: none;
+            padding-left: 0;
+            counter-reset: step-counter;
+        }
+        
+        .process-steps li {
+            margin-bottom: 1.5rem;
+            padding-left: 4rem;
+            position: relative;
+            min-height: 40px;
+        }
+        
+        .process-steps li:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            background: #2a4c7d;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .info-box h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2a4c7d;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1a2a6c;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .process-steps li {
+                padding-left: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">"Education for a brighter future"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Student Transfer Policy</h2>
+            <p>At Wachoro Boys High School, we have established clear guidelines for student transfers to ensure a smooth transition for both incoming and outgoing students while maintaining our academic standards.</p>
+        </section>
+        
+        <div class="policy-grid">
+            <div class="policy-card">
+                <div class="policy-icon">
+                    <i class="fas fa-sign-in-alt"></i>
+                </div>
+                <h2>Transfer Into the School</h2>
+                <p>We welcome students who meet our academic standards and share our commitment to excellence. The following requirements must be met for admission:</p>
+                
+                <h3>Academic Requirements</h3>
+                <ul class="requirements">
+                    <li>Minimum mean grade of C+ and above from the previous school</li>
+                    <li>Good conduct record from the previous school</li>
+                </ul>
+                
+                <h3>Documentation Requirements</h3>
+                <ul class="requirements">
+                    <li>Clearance letter from the previous school showing reasons for transfer</li>
+                    <li>Academic transcripts from the previous school</li>
+                    <li>Birth certificate</li>
+                    <li>Medical records</li>
+                </ul>
+                
+                <h3>Financial Requirements</h3>
+                <ul class="requirements">
+                    <li>Full payment of fees for the current term</li>
+                    <li>Payment of all applicable admission fees</li>
+                </ul>
+            </div>
+            
+            <div class="policy-card">
+                <div class="policy-icon">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
+                <h2>Transfer Out of the School</h2>
+                <p>For students leaving Wachoro Boys High School, the following procedures must be followed:</p>
+                
+                <h3>Financial Clearance</h3>
+                <ul class="requirements">
+                    <li>Clear all outstanding school balances</li>
+                    <li>Settle any pending fee obligations</li>
+                    <li>Return all school property in good condition</li>
+                </ul>
+                
+                <h3>Departmental Clearance</h3>
+                <ul class="requirements">
+                    <li>Clear with the Library department</li>
+                    <li>Clear with the Laboratory department</li>
+                    <li>Clear with the Games department</li>
+                    <li>Clear with the Dormitory department</li>
+                    <li>Clear with the Academic department</li>
+                </ul>
+                
+                <h3>Administrative Process</h3>
+                <ul class="requirements">
+                    <li>Complete the transfer form</li>
+                    <li>Obtain necessary signatures from all departments</li>
+                    <li>Receive final clearance from the Principal's office</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="note-box">
+            <h3>Important Notice Regarding Transfer Intake</h3>
+            <p>Please note that <strong>no transfer intake is allowed for Form Twos and Threes</strong>. Transfers are only considered for Form One and Form Four students, and even then, only under exceptional circumstances with approval from the Board of Management.</p>
+        </div>
+        
+        <div class="policy-card">
+            <h2>Transfer Process Timeline</h2>
+            <ol class="process-steps">
+                <li>
+                    <strong>Application Submission</strong>
+                    <p>Submit all required documents and application forms at least 30 days before the beginning of the term.</p>
+                </li>
+                <li>
+                    <strong>Document Review</strong>
+                    <p>Our admissions committee will review your application within 10 working days.</p>
+                </li>
+                <li>
+                    <strong>Entrance Assessment</strong>
+                    <p>Shortlisted candidates may be required to sit for an entrance assessment.</p>
+                </li>
+                <li>
+                    <strong>Interview</strong>
+                    <p>Selected candidates and parents/guardians will be invited for an interview.</p>
+                </li>
+                <li>
+                    <strong>Admission Decision</strong>
+                    <p>Successful applicants will receive an admission letter within 5 working days after the interview.</p>
+                </li>
+                <li>
+                    <strong>Fee Payment</strong>
+                    <p>Fees must be paid in full before the student reports to school.</p>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="info-box">
+            <h2>Our Commitment</h2>
+            <p>At Wachoro Boys High School, we are committed to providing a seamless transfer process for all students. Our administration is available to guide you through every step of the process and answer any questions you may have.</p>
+        </div>
+        
+        <div class="contact-section">
+            <h2>Need More Information?</h2>
+            <p>For inquiries regarding transfers, please contact our administration office:</p>
+            <p>Email: admissions@wachoroboys.sc.ke | Phone: +254 712 345 678</p>
+            <a href="#" class="btn">Download Transfer Forms</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wachoro Boys High School | P.O. Box 12345, Wachoro | Phone: +254 712 345 678 | Email: info@wachoroboys.sc.ke</p>
+            <p>"Education for a brighter future"</p>
+            <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

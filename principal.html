@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal's Message - Wachoro Boys High School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a5fb4 0%, #1c71d8 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-name {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .school-motto {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #e6f7ff;
+        }
+        
+        .principal-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 40px 0;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .photo-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .principal-photo {
+            width: 100%;
+            max-width: 380px;
+            height: 450px;
+            background: linear-gradient(45deg, #e6e6e6, #f5f5f5);
+            border: 5px solid #1a5fb4;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #888;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="%231a5fb4" opacity="0.1"/><path d="M200 150 C250 120 300 150 300 200 C300 250 250 280 200 250 C150 280 100 250 100 200 C100 150 150 120 200 150 Z" fill="%231a5fb4" opacity="0.3"/><text x="200" y="350" font-family="Arial" font-size="24" fill="%231a5fb4" text-anchor="middle">Principal Photo</text><text x="200" y="380" font-family="Arial" font-size="18" fill="%231a5fb4" text-anchor="middle">Mr. Francis Munyithya</text></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .photo-caption {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #1a5fb4;
+            background: #f0f7ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1a5fb4;
+        }
+        
+        .message-container {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .section-title {
+            color: #1a5fb4;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1a5fb4;
+        }
+        
+        .message-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .message-content p {
+            margin-bottom: 20px;
+        }
+        
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            font-weight: 600;
+            color: #1a5fb4;
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1a5fb4;
+        }
+        
+        .school-values {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .value-item {
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border-left: 4px solid #1a5fb4;
+            transition: transform 0.3s ease;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-item h3 {
+            color: #1a5fb4;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a5fb4;
+            color: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: #e6f7ff;
+            color: #1a5fb4;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 10px 0;
+            border: 2px solid #1a5fb4;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .principal-section {
+                padding: 25px;
+                gap: 25px;
+            }
+            
+            .principal-photo {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="school-motto">"Education for a Brighter Future"</p>
+    </header>
+    
+   <div class="container">
+    <section class="principal-section">
+        <div class="photo-container">
+            <div class="principal-photo">
+                <img src="images\welcome.jpg" alt="Principal Francis Munyithya" />
+            </div>
+            <div class="photo-caption">
+                <p>Mr. Francis Munyithya</p>
+                <p>Principal, Wachoro Boys High School</p>
+            </div>
+            <div class="badge">
+                <i class="fas fa-award"></i> Principal since 2015
+            </div>
+        </div>
+    </section>
+</div>
+
+            
+            <div class="message-container">
+                <h2 class="section-title">Principal's Message</h2>
+                <div class="message-content">
+                    <p>Dear Students, Parents, and Well-wishers,</p>
+                    
+                    <p>It is with great pleasure and pride that I welcome you to Wachoro Boys High School, an institution dedicated to academic excellence, character formation, and holistic development of young men. Our motto, "Education for a Brighter Future," encapsulates our commitment to preparing students for success in all aspects of life.</p>
+                    
+                    <p>For over four decades, our school has stood as a beacon of quality education, producing leaders who have made significant contributions to society. Our tradition of excellence is built on a foundation of strong values, dedicated teaching staff, and a supportive community.</p>
+                    
+                    <p>At Wachoro, we believe in nurturing not only academic prowess but also moral integrity, social responsibility, and personal discipline. Our curriculum is designed to challenge students intellectually while providing ample opportunities for growth in sports, arts, and leadership.</p>
+                    
+                    <p>To our students, I urge you to make the most of the opportunities provided here. Strive for excellence in all your endeavors, respect your teachers and peers, and remember that your time at Wachoro is a preparation for life's greater challenges. Embrace our motto by recognizing that education is the key to unlocking your brighter future.</p>
+                    
+                    <p>To parents and guardians, I extend my gratitude for entrusting us with your sons' education. We value your partnership and welcome your involvement in the school community.</p>
+                    
+                    <p>Together, let us continue the legacy of excellence that defines Wachoro Boys High School.</p>
+                    
+                    <p class="signature">Yours in education,<br>
+                    <strong>Mr. Francis Munyithya</strong><br>
+                    Principal, Wachoro Boys High School</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="school-values">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3><i class="fas fa-graduation-cap"></i> Academic Excellence</h3>
+                    <p>We strive for the highest standards in teaching and learning, fostering intellectual curiosity and critical thinking.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h3><i class="fas fa-shield-alt"></i> Integrity</h3>
+                    <p>We uphold honesty, moral courage, and ethical behavior in all our actions and decisions.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h3><i class="fas fa-users"></i> Community</h3>
+                    <p>We build a supportive environment where everyone is valued and respected.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h3><i class="fas fa-trophy"></i> Discipline</h3>
+                    <p>We cultivate self-control, responsibility, and commitment to personal and collective goals.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="school-values">
+            <h2 class="section-title">Principal's Vision</h2>
+            <div class="message-content">
+                <p>Under my leadership, Wachoro Boys High School will continue to:</p>
+                <ul style="list-style-type: none; margin: 20px 0;">
+                    <li style="padding: 10px; border-left: 3px solid #1a5fb4; margin-bottom: 10px; background: #f8fafc;">
+                        <i class="fas fa-check-circle" style="color: #1a5fb4;"></i> Provide a nurturing environment that fosters academic excellence
+                    </li>
+                    <li style="padding: 10px; border-left: 3px solid #1a5fb4; margin-bottom: 10px; background: #f8fafc;">
+                        <i class="fas fa-check-circle" style="color: #1a5fb4;"></i> Develop well-rounded individuals equipped with 21st-century skills
+                    </li>
+                    <li style="padding: 10px; border-left: 3px solid #1a5fb4; margin-bottom: 10px; background: #f8fafc;">
+                        <i class="fas fa-check-circle" style="color: #1a5fb4;"></i> Strengthen partnerships with parents and the community
+                    </li>
+                    <li style="padding: 10px; border-left: 3px solid #1a5fb4; margin-bottom: 10px; background: #f8fafc;">
+                        <i class="fas fa-check-circle" style="color: #1a5fb4;"></i> Continue our tradition of producing ethical leaders for Kenya
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> P.O. Box 123-45600, Wachoro, Kenya</p>
+            <p><i class="fas fa-phone"></i> +254 723 456 789</p>
+            <p><i class="fas fa-envelope"></i> info@wachoroboys.ac.ke</p>
+        </div>
+    </footer>
+</body>
+</html>

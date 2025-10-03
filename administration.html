@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a5fb4 0%, #1c71d8 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-name {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .school-motto {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .welcome-section {
+            background-color: white;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .welcome-title {
+            color: #1a5fb4;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .welcome-message {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .message-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .message-box {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .message-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .message-box h3 {
+            color: #1a5fb4;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .message-box i {
+            background: #1a5fb4;
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .announcements {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .announcements h2 {
+            color: #1a5fb4;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .announcement-list {
+            list-style-type: none;
+        }
+        
+        .announcement-list li {
+            padding: 15px;
+            border-left: 4px solid #1a5fb4;
+            margin-bottom: 15px;
+            background: #f8fafc;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a5fb4;
+            color: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .welcome-title {
+                font-size: 1.8rem;
+            }
+            
+            .welcome-section {
+                padding: 25px;
+            }
+            
+            .message-box {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="school-motto">"Excellence in Education, Character, and Community"</p>
+    </header>
+    
+    <div class="container">
+        <section class="welcome-section">
+            <h2 class="welcome-title">Welcome from the Administration</h2>
+            <p class="welcome-message">
+                On behalf of the entire administration team, we extend a warm and heartfelt welcome to all students, faculty, staff, and visitors as we begin the new academic year. We are committed to fostering an environment of academic excellence, respect, and growth for everyone in our school community.
+            </p>
+            
+            <div class="message-container">
+                <div class="message-box">
+                    <h3><i class="fas fa-user-graduate"></i> To Our Students</h3>
+                    <p>We are thrilled to have you back on school! This year promises to be filled with exciting learning opportunities, personal growth, and memorable experiences. Remember that our dedicated teachers and staff are here to support you in achieving your academic and personal goals.</p>
+                </div>
+                
+                <div class="message-box">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> To Our Staff</h3>
+                    <p>Your dedication and passion for education are the foundation of our school's success. We thank you for your unwavering commitment to our students and our community. Together, we will continue to provide an exceptional educational experience for all.</p>
+                </div>
+                
+                <div class="message-box">
+                    <h3><i class="fas fa-handshake"></i> To Parents & Visitors</h3>
+                    <p>We value your partnership and support in the educational journey of our students. Your involvement is crucial to our shared success. We welcome you to our campus and look forward to collaborating with you throughout the school year.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="announcements">
+            <h2>Important Announcements</h2>
+            <ul class="announcement-list">
+                <li>Orientation for new students will be held on August 25th at 9:00 AM in the main auditorium.</li>
+                <li>The first day of classes for all students will be on August 28th.</li>
+                <li>Parent-Teacher Association meeting scheduled for September 5th at 6:00 PM.</li>
+                <li>Please complete all required registration forms by October 20th.</li>
+                <li>School uniforms are available at the school store from 9 AM to 3 PM on weekdays.</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2025 wachoro school. All rights reserved.</p>
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> 248 wanguru</p>
+            <p><i class="fas fa-phone"></i> +254 704 160 227</p>
+            <p><i class="fas fa-envelope"></i> admin@wachoroschool.ac.ke</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Fee Structure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #2a4c7d;
+        }
+        
+        .tab {
+            padding: 1rem 1.5rem;
+            background: #e9ecef;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px 5px 0 0;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #d0deff;
+        }
+        
+        .tab.active {
+            background: #2a4c7d;
+            color: white;
+        }
+        
+        .fee-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .fee-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,  0, 0, 0.05);
+        }
+        
+        .fee-table th {
+            background: #2a4c7d;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .fee-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .fee-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .fee-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .fee-table .total {
+            font-weight: bold;
+            background: #f0f5ff;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2a4c7d;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1a2a6c;
+            transform: translateY(-2px);
+        }
+        
+        .btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .note-box {
+            background: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #fdbb2d;
+        }
+        
+        .note-box h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .info-box h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .payment-methods {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .payment-methods h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                margin-bottom: 0.5rem;
+                border-radius: 5px;
+            }
+            
+            .fee-table {
+                font-size: 0.9rem;
+            }
+            
+            .fee-table th, 
+            .fee-table td {
+                padding: 0.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">"Education for a brighter future"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>School Fee Structure</h2>
+            <p>At Wachoro Boys High School, we are committed to providing quality education at an affordable cost. Below is the detailed fee structure for all forms for the academic year 2023.</p>
+        </section>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="form1">Form One</div>
+            <div class="tab" data-tab="form2">Form Two</div>
+            <div class="tab" data-tab="form3">Form Three</div>
+            <div class="tab" data-tab="form4">Form Four</div>
+        </div>
+        
+        <div class="fee-content active" id="form1">
+            <h2>Form One Fee Structure</h2>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Amount (KSh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>Academic instruction</td>
+                        <td>25,000</td>
+                    </tr>
+                    <tr>
+                        <td>Boarding</td>
+                        <td>Accommodation and meals</td>
+                        <td>15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Development Fee</td>
+                        <td>School infrastructure</td>
+                        <td>5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Activity Fee</td>
+                        <td>Sports and clubs</td>
+                        <td>2,000</td>
+                    </tr>
+                    <tr>
+                        <td>Medical</td>
+                        <td>Health services</td>
+                        <td>1,500</td>
+                    </tr>
+                    <tr>
+                        <td>Caution Money</td>
+                        <td>One-time payment (Refundable)</td>
+                        <td>2,000</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="2">Total Fees per Term</td>
+                        <td>50,500</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="download-section">
+                <a href="#" class="btn"><i class="fas fa-download"></i> Download Form One Fee Structure (PDF)</a>
+                <a href="#" class="btn"><i class="fas fa-file-excel"></i> Download Form One Fee Structure (Excel)</a>
+            </div>
+        </div>
+        
+        <div class="fee-content" id="form2">
+            <h2>Form Two Fee Structure</h2>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Amount (KSh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>Academic instruction</td>
+                        <td>26,000</td>
+                    </tr>
+                    <tr>
+                        <td>Boarding</td>
+                        <td>Accommodation and meals</td>
+                        <td>15,500</td>
+                    </tr>
+                    <tr>
+                        <td>Development Fee</td>
+                        <td>School infrastructure</td>
+                        <td>5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Activity Fee</td>
+                        <td>Sports and clubs</td>
+                        <td>2,200</td>
+                    </tr>
+                    <tr>
+                        <td>Medical</td>
+                        <td>Health services</td>
+                        <td>1,500</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratory Fee</td>
+                        <td>Science practicals</td>
+                        <td>1,800</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="2">Total Fees per Term</td>
+                        <td>52,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="download-section">
+                <a href="#" class="btn"><i class="fas fa-download"></i> Download Form Two Fee Structure (PDF)</a>
+                <a href="#" class="btn"><i class="fas fa-file-excel"></i> Download Form Two Fee Structure (Excel)</a>
+            </div>
+        </div>
+        
+        <div class="fee-content" id="form3">
+            <h2>Form Three Fee Structure</h2>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Amount (KSh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>Academic instruction</td>
+                        <td>27,000</td>
+                    </tr>
+                    <tr>
+                        <td>Boarding</td>
+                        <td>Accommodation and meals</td>
+                        <td>16,000</td>
+                    </tr>
+                    <tr>
+                        <td>Development Fee</td>
+                        <td>School infrastructure</td>
+                        <td>5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Activity Fee</td>
+                        <td>Sports and clubs</td>
+                        <td>2,500</td>
+                    </tr>
+                    <tr>
+                        <td>Medical</td>
+                        <td>Health services</td>
+                        <td>1,500</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratory Fee</td>
+                        <td>Science practicals</td>
+                        <td>2,000</td>
+                    </tr>
+                    <tr>
+                        <td>Tour Fee</td>
+                        <td>Educational trips</td>
+                        <td>3,000</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="2">Total Fees per Term</td>
+                        <td>57,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="download-section">
+                <a href="#" class="btn"><i class="fas fa-download"></i> Download Form Three Fee Structure (PDF)</a>
+                <a href="#" class="btn"><i class="fas fa-file-excel"></i> Download Form Three Fee Structure (Excel)</a>
+            </div>
+        </div>
+        
+        <div class="fee-content" id="form4">
+            <h2>Form Four Fee Structure</h2>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Amount (KSh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>Academic instruction</td>
+                        <td>28,000</td>
+                    </tr>
+                    <tr>
+                        <td>Boarding</td>
+                        <td>Accommodation and meals</td>
+                        <td>16,500</td>
+                    </tr>
+                    <tr>
+                        <td>Development Fee</td>
+                        <td>School infrastructure</td>
+                        <td>5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Activity Fee</td>
+                        <td>Sports and clubs</td>
+                        <td>2,500</td>
+                    </tr>
+                    <tr>
+                        <td>Medical</td>
+                        <td>Health services</td>
+                        <td>1,500</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratory Fee</td>
+                        <td>Science practicals</td>
+                        <td>2,200</td>
+                    </tr>
+                    <tr>
+                        <td>Examination Fee</td>
+                        <td>KCSE registration and materials</td>
+                        <td>5,000</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="2">Total Fees per Term</td>
+                        <td>60,700</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="download-section">
+                <a href="#" class="btn"><i class="fas fa-download"></i> Download Form Four Fee Structure (PDF)</a>
+                <a href="#" class="btn"><i class="fas fa-file-excel"></i> Download Form Four Fee Structure (Excel)</a>
+            </div>
+        </div>
+        
+        <div class="note-box">
+            <h3>Important Notes</h3>
+            <p>1. All fees are payable in full at the beginning of each term.</p>
+            <p>2. A discount of 5% is offered for full payment before the term begins.</p>
+            <p>3. Payment plans are available for parents who need flexibility. Please contact the accounts office.</p>
+            <p>4. Late payment will attract a penalty of 2% per month on the outstanding balance.</p>
+            <p>5. The school accepts payments through bank transfer or mobile money. No cash payments are allowed.</p>
+        </div>
+        
+        <div class="payment-methods">
+            <h2>Payment Methods</h2>
+            <p>We offer convenient payment options for parents and guardians:</p>
+            <ul>
+                <li><strong>Bank Transfer:</strong> Kenya Commercial Bank (KCB), Account No: 012345678901</li>
+                <li><strong>Mobile Money:</strong> Paybill Number: 123456, Account Number: Student Admission Number</li>
+            </ul>
+            <p>Please ensure you use the correct student admission number as reference when making payments.</p>
+        </div>
+        
+        <div class="info-box">
+            <h2>Financial Assistance</h2>
+            <p>Wachoro Boys High School offers scholarships and bursaries to deserving students based on both academic performance and financial need. Please contact the principal's office for more information about financial assistance programs.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wachoro Boys High School | P.O. Box 12345, Wachoro | Phone: +254 712 345 678 | Email: info@wachoroboys.sc.ke</p>
+            <p>"Education for a brighter future"</p>
+            <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.fee-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

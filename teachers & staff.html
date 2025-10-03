@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers & Staff - Wachoro Boys High School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a5fb4 0%, #1c71d8 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-name {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .school-motto {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #e6f7ff;
+        }
+        
+        .page-title {
+            color: #1a5fb4;
+            font-size: 2.2rem;
+            margin: 30px 0;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1a5fb4;
+        }
+        
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: #e6f7ff;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a5fb4;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: #1a5fb4;
+            color: white;
+        }
+        
+        .tab-btn:hover {
+            background: #1a5fb4;
+            color: white;
+        }
+        
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .staff-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .staff-photo {
+            height: 200px;
+            background: linear-gradient(45deg, #e6e6e6, #f5f5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .staff-photo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a5fb4" opacity="0.1"/><circle cx="50" cy="40" r="20" fill="%231a5fb4" opacity="0.3"/><rect x="35" y="65" width="30" height="35" fill="%231a5fb4" opacity="0.3"/></svg>');
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .staff-info {
+            padding: 20px;
+        }
+        
+        .staff-name {
+            color: #1a5fb4;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .staff-role {
+            color: #1c71d8;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .staff-subject {
+            background: #e6f7ff;
+            color: #1a5fb4;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .staff-desc {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .staff-department {
+            margin-top: 40px;
+        }
+        
+        .department-title {
+            color: #1a5fb4;
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1a5fb4;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a5fb4;
+            color: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="school-motto">"Education for a Brighter Future"</p>
+    </header>
+    
+    <div class="container">
+        <h2 class="page-title">Our Dedicated Teachers & Staff</h2>
+        
+        <div class="intro-text">
+            <p>At Wachoro Boys High School, we are proud of our team of 20 highly qualified teachers and 7 dedicated support staff members who work tirelessly to provide quality education and maintain a nurturing environment for our students.</p>
+        </div>
+        
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="showAll()">All Staff</button>
+            <button class="tab-btn" onclick="showTeachers()">Teaching Staff</button>
+            <button class="tab-btn" onclick="showSupport()">Support Staff</button>
+            <button class="tab-btn" onclick="showAdministration()">Administration</button>
+        </div>
+        
+        <div class="staff-department" id="teaching-staff">
+            <h3 class="department-title">Teaching Staff</h3>
+            <div class="staff-grid">
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. James Kariuki</h3>
+                        <p class="staff-role">Senior Mathematics Teacher</p>
+                        <span class="staff-subject">Mathematics</span>
+                        <p class="staff-desc">15 years of experience. Specializes in calculus and statistics. Head of Mathematics Department.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Grace Nyambura</h3>
+                        <p class="staff-role">English Language Teacher</p>
+                        <span class="staff-subject">English</span>
+                        <p class="staff-desc">12 years of experience. Passionate about literature and creative writing. Leads the debate club.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Samuel Ochieng</h3>
+                        <p class="staff-role">Physics Teacher</p>
+                        <span class="staff-subject">Physics</span>
+                        <p class="staff-desc">10 years of experience. Heads the school science club and robotics team.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Rose Atieno</h3>
+                        <p class="staff-role">Chemistry Teacher</p>
+                        <span class="staff-subject">Chemistry</span>
+                        <p class="staff-desc">9 years of experience. Specializes in organic chemistry. Leads environmental club.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Benjamin Mutiso</h3>
+                        <p class="staff-role">Biology Teacher</p>
+                        <span class="staff-subject">Biology</span>
+                        <p class="staff-desc">11 years of experience. Heads the school's nature club and agricultural program.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Paul Kamau</h3>
+                        <p class="staff-role">History & Government Teacher</p>
+                        <span class="staff-subject">History</span>
+                        <p class="staff-desc">14 years of experience. Specializes in African history. Leads the history club.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Elizabeth Wanjiku</h3>
+                        <p class="staff-role">Geography Teacher</p>
+                        <span class="staff-subject">Geography</span>
+                        <p class="staff-desc">8 years of experience. Passionate about environmental conservation and fieldwork.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. David Mwangi</h3>
+                        <p class="staff-role">CRE Teacher</p>
+                        <span class="staff-subject">CRE</span>
+                        <p class="staff-desc">13 years of experience. Heads the school's guidance and counseling department.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Joseph Odhiambo</h3>
+                        <p class="staff-role">Agriculture Teacher</p>
+                        <span class="staff-subject">Agriculture</span>
+                        <p class="staff-desc">10 years of experience. Manages the school farm and agricultural projects.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Susan Achieng</h3>
+                        <p class="staff-role">Business Studies Teacher</p>
+                        <span class="staff-subject">Business Studies</span>
+                        <p class="staff-desc">7 years of experience. Leads the young entrepreneurs club and investment society.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Peter Ndirangu</h3>
+                        <p class="staff-role">Kiswahili Teacher</p>
+                        <span class="staff-subject">Kiswahili</span>
+                        <p class="staff-desc">10 years of experience. Leads the drama and Swahili poetry club.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="teachers">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Jane Muthoni</h3>
+                        <p class="staff-role">Home Science Teacher</p>
+                        <span class="staff-subject">Home Science</span>
+                        <p class="staff-desc">8 years of experience. Specializes in nutrition and family health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="staff-department" id="support-staff">
+            <h3 class="department-title">Support Staff</h3>
+            <div class="staff-grid">
+                <div class="staff-card" data-category="support">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Peter Njoroge</h3>
+                        <p class="staff-role">School Librarian</p>
+                        <span class="staff-subject">Library</span>
+                        <p class="staff-desc">Manages the school library and promotes reading culture among students.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="support">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Mary Wambui</h3>
+                        <p class="staff-role">Laboratory Technician</p>
+                        <span class="staff-subject">Science Lab</span>
+                        <p class="staff-desc">Assists in preparing science experiments and maintaining laboratory equipment.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="support">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Charles Otieno</h3>
+                        <p class="staff-role">ICT Technician</p>
+                        <span class="staff-subject">Computer Lab</span>
+                        <p class="staff-desc">Maintains computer systems and supports technology integration in teaching.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="support">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Grace Nyokabi</h3>
+                        <p class="staff-role">School Nurse</p>
+                        <span class="staff-subject">Health Services</span>
+                        <p class="staff-desc">Provides healthcare services and promotes health education in the school.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="support">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Samuel Mbugua</h3>
+                        <p class="staff-role">Accountant</p>
+                        <span class="staff-subject">Finance</span>
+                        <p class="staff-desc">Manages school finances and budgeting. 8 years of experience.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="support">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Rebecca Chebet</h3>
+                        <p class="staff-role">Administrative Assistant</p>
+                        <span class="staff-subject">Administration</span>
+                        <p class="staff-desc">Provides administrative support and manages school records.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="support">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Daniel Kipchumba</h3>
+                        <p class="staff-role">Maintenance Supervisor</p>
+                        <span class="staff-subject">Facilities</span>
+                        <p class="staff-desc">Oversees school maintenance and facilities management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="staff-department" id="administration-staff">
+            <h3 class="department-title">Administration</h3>
+            <div class="staff-grid">
+                <div class="staff-card" data-category="administration">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Francis Munyithya</h3>
+                        <p class="staff-role">Principal</p>
+                        <span class="staff-subject">Administration</span>
+                        <p class="staff-desc">Provides overall leadership and management of the school.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="administration">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Lucy Wanjiru</h3>
+                        <p class="staff-role">Deputy Principal</p>
+                        <span class="staff-subject">Administration</span>
+                        <p class="staff-desc">Assists in school administration and oversees academic affairs.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="administration">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mr. Michael Kiprop</h3>
+                        <p class="staff-role">Dean of Studies</p>
+                        <span class="staff-subject">Academic</span>
+                        <p class="staff-desc">Coordinates curriculum implementation and academic programs.</p>
+                    </div>
+                </div>
+                
+                <div class="staff-card" data-category="administration">
+                    <div class="staff-photo"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Mrs. Sarah Njeri</h3>
+                        <p class="staff-role">Director of Boarding</p>
+                        <span class="staff-subject">Boarding</span>
+                        <p class="staff-desc">Oversees boarding facilities and student welfare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> P.O. Box 123-45600, Wachoro, Kenya</p>
+            <p><i class="fas fa-phone"></i> +254 723 456 789</p>
+            <p><i class="fas fa-envelope"></i> info@wachoroboys.ac.ke</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to show all staff
+        function showAll() {
+            document.getElementById('teaching-staff').style.display = 'block';
+            document.getElementById('support-staff').style.display = 'block';
+            document.getElementById('administration-staff').style.display = 'block';
+            
+            // Update active button
+            updateActiveButton('All Staff');
+        }
+        
+        // Function to show only teaching staff
+        function showTeachers() {
+            document.getElementById('teaching-staff').style.display = 'block';
+            document.getElementById('support-staff').style.display = 'none';
+            document.getElementById('administration-staff').style.display = 'none';
+            
+            // Update active button
+            updateActiveButton('Teaching Staff');
+        }
+        
+        // Function to show only support staff
+        function showSupport() {
+            document.getElementById('teaching-staff').style.display = 'none';
+            document.getElementById('support-staff').style.display = 'block';
+            document.getElementById('administration-staff').style.display = 'none';
+            
+            // Update active button
+            updateActiveButton('Support Staff');
+        }
+        
+        // Function to show only administration staff
+        function showAdministration() {
+            document.getElementById('teaching-staff').style.display = 'none';
+            document.getElementById('support-staff').style.display = 'none';
+            document.getElementById('administration-staff').style.display = 'block';
+            
+            // Update active button
+            updateActiveButton('Administration');
+        }
+        
+        // Function to update active button state
+        function updateActiveButton(activeText) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent === activeText) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

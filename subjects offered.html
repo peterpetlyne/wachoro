@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wochoro Boys High School - Subjects Offered</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .subject-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #2a4c7d;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subject-card h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .subject-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .subject-icon {
+            font-size: 2rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+        }
+        
+        .departments {
+            margin: 3rem 0;
+        }
+        
+        .department {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .department h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .subject-list {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .subject-list li {
+            background: #f0f5ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #2a4c7d;
+            border: 1px solid #d0deff;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .info-box h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .subject-list {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wochoro Boys High School</h1>
+        <p class="motto">"Education for a brighter future"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Comprehensive Curriculum for Holistic Education</h2>
+            <p>At Wochoro Boys High School, we offer a wide range of subjects designed to provide our students with a well-rounded education and prepare them for success in university and beyond.</p>
+        </section>
+        
+        <div class="subjects-grid">
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Mathematics</h3>
+                <p>Develop logical thinking and problem-solving skills through our comprehensive mathematics program.</p>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3>Chemistry</h3>
+                <p>Explore the composition, structure, and properties of matter through hands-on laboratory experiments.</p>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h3>Physics</h3>
+                <p>Understand the fundamental principles governing the universe, from subatomic particles to galaxies.</p>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <h3>Biology</h3>
+                <p>Study living organisms and their interactions with each other and the environment.</p>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-globe-africa"></i>
+                </div>
+                <h3>Geography</h3>
+                <p>Explore Earth's landscapes, environments, and the relationships between people and their environments.</p>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>English Language</h3>
+                <p>Master communication skills and appreciate literature from around the world.</p>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <h3>History</h3>
+                <p>Understand past events, their causes and effects, and how they shape our present and future.</p>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Business Studies</h3>
+                <p>Learn the fundamentals of business operations, management, and entrepreneurship.</p>
+            </div>
+            
+            <div class="subject-card">
+                <div class="subject-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3>Computer Studies</h3>
+                <p>Develop digital literacy and programming skills essential for the modern world.</p>
+            </div>
+        </div>
+        
+        <section class="departments">
+            <div class="department">
+                <h2>Sciences Department</h2>
+                <ul class="subject-list">
+                    <li>Mathematics</li>
+                    <li>Physics</li>
+                    <li>Chemistry</li>
+                    <li>Biology</li>
+                </ul>
+            </div>
+            
+            <div class="department">
+                <h2>Languages Department</h2>
+                <ul class="subject-list">
+                    <li>English</li>
+                    <li>Kiswahili</li>
+                </ul>
+            </div>
+            
+            <div class="department">
+                <h2>Humanities Department</h2>
+                <ul class="subject-list">
+                    <li>History</li>
+                    <li>Geography</li>
+                    <li>Religious Education</li>
+                </ul>
+            </div>
+            
+            <div class="department">
+                <h2>Technical Department</h2>
+                <ul class="subject-list">
+                    <li>Business Studies</li>
+                    <li>Computer Studies</li>
+                    <li>Agriculture</li>
+                    <li>Home Science</li>
+                    <li>Art and Design</li>
+                    <li>Music</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="info-box">
+            <h2>Our Educational Approach</h2>
+            <p>At Wochoro Boys High School, we believe in providing a balanced education that combines academic excellence with character development. Our curriculum is designed to nurture critical thinking, creativity, and practical skills that prepare students for the challenges of the 21st century.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wochoro Boys High School | P.O. Box 12345, Wochoro | Phone: +254 712 345 678 | Email: info@wochoroboys.sc.ke</p>
+            <p>"Education for a brighter future"</p>
+            <p>© 2023 Wochoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

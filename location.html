@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Location & Directions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .location-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .location-card h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .location-icon {
+            font-size: 2.5rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 1.5rem 0;
+        }
+        
+        .directions {
+            margin: 1.5rem 0;
+        }
+        
+        .direction-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .direction-number {
+            background: #2a4c7d;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .direction-content {
+            flex-grow: 1;
+        }
+        
+        .landmarks {
+            margin: 2rem 0;
+        }
+        
+        .landmark-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f0f5ff;
+            border-radius: 5px;
+        }
+        
+        .landmark-icon {
+            font-size: 1.5rem;
+            color: #2a4c7d;
+            margin-right: 1rem;
+        }
+        
+        .transport-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .transport-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .transport-card i {
+            font-size: 2.5rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .info-box h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .transport-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">"Education for a brighter future"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Location & Directions</h2>
+            <p>Wachoro Boys High School is conveniently located along the Nairobi-Nyeri Highway, making it easily accessible from various parts of the country. Find detailed directions and transportation options below.</p>
+        </section>
+        
+        <div class="location-grid">
+            <div class="location-card">
+                <div class="location-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h2>Our Location</h2>
+                <p>Wachoro Boys High School is strategically located along the Nairobi-Nyeri Highway, offering easy access from major towns and cities.</p>
+                
+                <div class="map-placeholder">
+                    Interactive Map Would Appear Here
+                </div>
+                
+                <h3>Exact Location Details:</h3>
+                <ul class="requirements">
+                    <li>Along Nairobi-Nyeri Highway</li>
+                    <li>700m from Makutano Market</li>
+                    <li>1km from Sagana Bridge</li>
+                    <li>Near KenGen Sagana Power Station</li>
+                    <li>Kirinyaga County</li>
+                </ul>
+                
+                <div class="landmarks">
+                    <h3>Key Landmarks:</h3>
+                    <div class="landmark-item">
+                        <div class="landmark-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div>
+                            <h4>Makutano Market</h4>
+                            <p>700m from the school</p>
+                        </div>
+                    </div>
+                    
+                    <div class="landmark-item">
+                        <div class="landmark-icon">
+                            <i class="fas fa-bridge"></i>
+                        </div>
+                        <div>
+                            <h4>Sagana Bridge</h4>
+                            <p>1km from the school</p>
+                        </div>
+                    </div>
+                    
+                    <div class="landmark-item">
+                        <div class="landmark-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div>
+                            <h4>KenGen Power Station</h4>
+                            <p>Near the school</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-card">
+                <div class="location-icon">
+                    <i class="fas fa-route"></i>
+                </div>
+                <h2>Directions to the School</h2>
+                <p>Follow these directions to easily find Wachoro Boys High School:</p>
+                
+                <div class="directions">
+                    <div class="direction-item">
+                        <div class="direction-number">1</div>
+                        <div class="direction-content">
+                            <h4>From Nairobi</h4>
+                            <p>Take the Nairobi-Nyeri Highway heading north. Continue past Thika and Makuyu. The school is located approximately 100km from Nairobi, just after Sagana Bridge.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="direction-item">
+                        <div class="direction-number">2</div>
+                        <div class="direction-content">
+                            <h4>From Nyeri</h4>
+                            <p>Take the Nyeri-Nairobi Highway heading south. Pass through Karatina and continue towards Sagana. The school is located about 2km after Sagana town.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="direction-item">
+                        <div class="direction-number">3</div>
+                        <div class="direction-content">
+                            <h4>From Embu/Meru</h4>
+                            <p>Take the Embu-Nairobi road until you reach Makutano junction. Turn left onto the Nairobi-Nyeri Highway. The school is located 700m from Makutano Market.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="direction-item">
+                        <div class="direction-number">4</div>
+                        <div class="direction-content">
+                            <h4>Using Public Transport</h4>
+                            <p>Take a matatu heading to Nyeri from Nairobi or vice versa. Ask to be dropped at Wachoro Boys High School junction. The school is a short walk from the main road.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Transportation Options</h3>
+                <div class="transport-options">
+                    <div class="transport-card">
+                        <i class="fas fa-bus"></i>
+                        <h4>Public Matatus</h4>
+                        <p>Regular matatus ply the Nairobi-Nyeri route</p>
+                    </div>
+                    
+                    <div class="transport-card">
+                        <i class="fas fa-car"></i>
+                        <h4>Private Vehicles</h4>
+                        <p>Ample parking available within the school</p>
+                    </div>
+                    
+                    <div class="transport-card">
+                        <i class="fas fa-taxi"></i>
+                        <h4>Taxis</h4>
+                        <p>Available from Sagana and Makutano towns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h2>Open Days</h2>
+            <p>We hold regular open days for prospective students and parents. Please contact us to schedule a visit and experience our campus firsthand.</p>
+        </div>
+        
+        <div class="contact-section">
+            <h2>Need Further Assistance?</h2>
+            <p>If you need additional help with directions or would like to schedule a visit, please contact our administration office:</p>
+            <p>Email: info@wachoroboys.sc.ke | Phone: +254 712 345 678</p>
+            <p>Office Hours: Monday-Friday, 8:00 AM - 4:00 PM</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wachoro Boys High School | Located along Nairobi-Nyeri Highway | 700m from Makutano Market | 1km from Sagana Bridge</p>
+            <p>"Education for a brighter future"</p>
+            <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

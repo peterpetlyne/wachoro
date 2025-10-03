@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Student Life</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .life-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .life-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .life-img {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .life-content {
+            padding: 1.5rem;
+        }
+        
+        .life-content h2 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .gallery-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .gallery-btn {
+            display: inline-block;
+            background: #2a4c7d;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .gallery-btn:hover {
+            background: #1a2a6c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .activities {
+            margin: 3rem 0;
+        }
+        
+        .activities h2 {
+            color: #1a2a6c;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .activity-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .activity-item i {
+            font-size: 2.5rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .testimonial h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial .author {
+            font-weight: bold;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Gallery Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 800px;
+            margin-top: 50px;
+            animation: zoom 0.6s;
+        }
+        
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            height: 150px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .life-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">"Education for a brighter future"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Student Life at Wachoro Boys</h2>
+            <p>At Wachoro Boys High School, we believe in holistic education that balances academic excellence with character development, extracurricular activities, and community engagement. Our students enjoy a vibrant campus life that prepares them for success beyond the classroom.</p>
+        </section>
+        
+        <div class="life-grid">
+            <div class="life-card">
+                <div class="life-img">Assembly Ground Photo</div>
+                <div class="life-content">
+                    <h2>Morning Assembly</h2>
+                    <p>Each day begins with a morning assembly where students gather for prayers, announcements, and motivational talks. This time fosters unity, discipline, and sets the tone for the day's activities.</p>
+                </div>
+            </div>
+            
+            <div class="life-card">
+                <div class="life-img">Prize Giving Day Photo</div>
+                <div class="life-content">
+                    <h2>Prize Giving Day</h2>
+                    <p>Our annual prize giving day celebrates academic excellence, talent, and character. Students are recognized for their achievements in academics, sports, leadership, and community service.</p>
+                </div>
+            </div>
+            
+            <div class="life-card">
+                <div class="life-img">Dining Hall Photo</div>
+                <div class="life-content">
+                    <h2>Dining Experience</h2>
+                    <p>Our spacious dining hall provides nutritious meals in a clean, organized environment. Meal times are not just about eating but also about building community and practicing etiquette.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="activities">
+            <h2>Campus Activities</h2>
+            <div class="activities-grid">
+                <div class="activity-item">
+                    <i class="fas fa-book"></i>
+                    <h3>Academic Clubs</h3>
+                    <p>Science, Math, Debate, and Journalism clubs</p>
+                </div>
+                
+                <div class="activity-item">
+                    <i class="fas fa-futbol"></i>
+                    <h3>Sports</h3>
+                    <p>Football, Basketball, Athletics, and more</p>
+                </div>
+                
+                <div class="activity-item">
+                    <i class="fas fa-music"></i>
+                    <h3>Performing Arts</h3>
+                    <p>Music, Drama, and Dance groups</p>
+                </div>
+                
+                <div class="activity-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Community Service</h3>
+                    <p>Environmental and social responsibility projects</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonial">
+            <h2>Words From Our Students</h2>
+            <p>"Wachoro Boys has been more than just a school to me. It's a place where I've discovered my potential, built lasting friendships, and grown into a responsible young man ready to face the world."</p>
+            <p class="author">- Brian Maina, Form 4 Student</p>
+        </div>
+        
+        <div class="gallery-section">
+            <h2>Explore More of Campus Life</h2>
+            <p>Click the button below to view more photos from our extensive gallery showcasing daily life at Wachoro Boys High School.</p>
+            <a href="#" class="gallery-btn" id="galleryBtn"><i class="fas fa-images"></i> View Photo Gallery</a>
+        </div>
+    </div>
+    
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div style="background: #1a2a6c; color: white; padding: 2rem; text-align: center;">
+                <h2>Wachoro Boys High School Gallery</h2>
+                <p>Explore photos from various school activities and events</p>
+            </div>
+            
+            <div class="container">
+                <div class="gallery-grid">
+                    <div class="gallery-item">Classroom Learning</div>
+                    <div class="gallery-item">Science Lab</div>
+                    <div class="gallery-item">Library</div>
+                    <div class="gallery-item">Sports Day</div>
+                    <div class="gallery-item">Music Festival</div>
+                    <div class="gallery-item">Drama Performance</div>
+                    <div class="gallery-item">Leadership Training</div>
+                    <div class="gallery-item">School Trip</div>
+                    <div class="gallery-item">Art Exhibition</div>
+                    <div class="gallery-item">Debate Competition</div>
+                    <div class="gallery-item">Community Service</div>
+                    <div class="gallery-item">Graduation Ceremony</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wachoro Boys High School | P.O. Box 12345, Wachoro | Phone: +254 712 345 678 | Email: info@wachoroboys.sc.ke</p>
+            <p>"Education for a brighter future"</p>
+            <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('galleryModal');
+            const btn = document.getElementById('galleryBtn');
+            const span = document.getElementsByClassName('close')[0];
+            
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+            }
+            
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

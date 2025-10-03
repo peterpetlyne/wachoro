@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board of Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #9bbfe2;
+            color: #252831;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            color: #070707;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            margin: 0 auto 25px;
+            border-radius: 2px;
+        }
+        
+        .intro-text {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #0d0d0e;
+            font-size: 1.1rem;
+        }
+        
+        .board-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+        
+        .member-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .photo-container {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .member-card:hover .photo-container img {
+            transform: scale(1.05);
+        }
+        
+        .chairman .photo-container::after {
+            content: "Chairman";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #2e3336;
+            color: rgb(168, 180, 250);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .secretary .photo-container::after {
+            content: "Secretary";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #2ecc71;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .member-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .member-name {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .member-role {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .member-bio {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .board-members {
+                gap: 25px;
+            }
+            
+            .member-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Board of Management</h1>
+            <div class="divider"></div>
+            <p class="intro-text">Our dedicated leadership team brings together diverse expertise and experience to guide our organization toward continued success and growth.</p>
+        </header>
+        
+        <div class="board-members">
+            <!-- Chairman -->
+            <div class="member-card chairman">
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Chairman of the Board">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Robert Chen</h3>
+                    <p class="member-role">Chairman of the Board</p>
+                    <p class="member-bio">With over 25 years of industry experience, Robert provides strategic direction and leadership to the organization.</p>
+                </div>
+            </div>
+            
+            <!-- Secretary -->
+            <div class="member-card secretary">
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Board Secretary">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Sarah Johnson</h3>
+                    <p class="member-role">Board Secretary</p>
+                    <p class="member-bio">Sarah ensures effective governance and compliance while maintaining all board records and communications.</p>
+                </div>
+            </div>
+            
+            <!-- Other Board Members (single photo representation) -->
+            <div class="member-card">
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Board Members">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Board Members</h3>
+                    <p class="member-role">Directors & Trustees</p>
+                    <p class="member-bio">Our diverse board brings together expertise in finance, technology, marketing, and governance to steer the organization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

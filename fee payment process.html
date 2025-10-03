@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wachoro Boys High School - Fee Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #fdbb2d, #b21f1f, #fdbb2d);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 1100px) {
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .payment-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #2a4c7d;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-card h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .payment-card h3 {
+            color: #1a2a6c;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        .requirements {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .requirements li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .requirements li:before {
+            content: "•";
+            color: #fdbb2d;
+            font-weight: bold;
+            position: absolute;
+            left: 1rem;
+        }
+        
+        .payment-icon {
+            font-size: 2.5rem;
+            color: #fdbb2d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .note-box {
+            background: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #fdbb2d;
+        }
+        
+        .note-box h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+        }
+        
+        .process-steps {
+            list-style-type: none;
+            padding-left: 0;
+            counter-reset: step-counter;
+        }
+        
+        .process-steps li {
+            margin-bottom: 1.5rem;
+            padding-left: 4rem;
+            position: relative;
+            min-height: 40px;
+        }
+        
+        .process-steps li:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            background: #2a4c7d;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a2a6c, #2a4c7d);
+            color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .info-box h2 {
+            margin-bottom: 1rem;
+            color: #fdbb2d;
+        }
+        
+        .bank-details {
+            background: #f0f5ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .bank-details h3 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 0.8rem;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            min-width: 150px;
+            color: #1a2a6c;
+        }
+        
+        .detail-value {
+            flex-grow: 1;
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2a4c7d;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1a2a6c;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .motto {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .process-steps li {
+                padding-left: 3rem;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+                margin-bottom: 1.2rem;
+            }
+            
+            .detail-label {
+                margin-bottom: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="school-name">Wachoro Boys High School</h1>
+        <p class="motto">"Education for a brighter future"</p>
+        <div class="header-decoration"></div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Fee Payment Process</h2>
+            <p>At Wachoro Boys High School, we have streamlined our fee payment process to ensure convenience, security, and efficiency for parents and guardians. Please follow the guidelines below for all fee payments.</p>
+        </section>
+        
+        <div class="payment-grid">
+            <div class="payment-card">
+                <div class="payment-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h2>Bank Transfer Payment</h2>
+                <p>We accept fee payments through KCB Bank. Please use the following bank details for transfers:</p>
+                
+                <div class="bank-details">
+                    <h3>KCB Bank Account Details</h3>
+                    <div class="detail-row">
+                        <div class="detail-label">Bank Name:</div>
+                        <div class="detail-value">Kenya Commercial Bank (KCB)</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Account Name:</div>
+                        <div class="detail-value">Wachoro Boys High School</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Account Number:</div>
+                        <div class="detail-value">012345678901</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Branch:</div>
+                        <div class="detail-value">Wachoro Main Branch</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Branch Code:</div>
+                        <div class="detail-value">01234</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">SWIFT Code:</div>
+                        <div class="detail-value">KCBLKENX</div>
+                    </div>
+                </div>
+                
+                <h3>Instructions for Bank Transfer</h3>
+                <ol class="requirements">
+                    <li>Visit any KCB branch or use KCB online banking</li>
+                    <li>Use the account details provided above</li>
+                    <li>Use the student's admission number as the reference</li>
+                    <li>Keep the transaction receipt for your records</li>
+                    <li>Send a copy of the receipt to the school accounts office via email</li>
+                </ol>
+            </div>
+            
+            <div class="payment-card">
+                <div class="payment-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h2>Mobile Money Payment</h2>
+                <p>For your convenience, we also accept mobile money payments through Paybill number. This service is available on all mobile networks.</p>
+                
+                <div class="bank-details">
+                    <h3>Paybill Details</h3>
+                    <div class="detail-row">
+                        <div class="detail-label">Paybill Number:</div>
+                        <div class="detail-value">123456</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Account Number:</div>
+                        <div class="detail-value">Student's Admission Number</div>
+                    </div>
+                </div>
+                
+                <h3>Instructions for Mobile Payment</h3>
+                <ol class="requirements">
+                    <li>Go to M-PESA menu on your phone</li>
+                    <li>Select Lipa Na M-PESA</li>
+                    <li>Select Paybill</li>
+                    <li>Enter Business Number: 123456</li>
+                    <li>Enter Account Number: Student's Admission Number</li>
+                    <li>Enter the amount</li>
+                    <li>Enter your M-PESA PIN and confirm</li>
+                    <li>You will receive a confirmation message</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="note-box">
+            <h3>Important Notice Regarding Payment Methods</h3>
+            <p>Please note that <strong>NO CASH PAYMENTS</strong> are accepted at the school accounts office. All payments must be made through bank transfer or mobile money as described above. This policy ensures the safety and security of all transactions and provides a clear audit trail for both parents and the school administration.</p>
+        </div>
+        
+        <div class="payment-card">
+            <h2>Fee Payment Process Timeline</h2>
+            <ol class="process-steps">
+                <li>
+                    <strong>Receive Fee Structure</strong>
+                    <p>Fee structures are sent to parents at the beginning of each term via email and SMS.</p>
+                </li>
+                <li>
+                    <strong>Make Payment</strong>
+                    <p>Use either bank transfer or mobile money payment methods described above.</p>
+                </li>
+                <li>
+                    <strong>Send Proof of Payment</strong>
+                    <p>Email a copy of the transaction receipt to accounts@wachoroboys.sc.ke</p>
+                </li>
+                <li>
+                    <strong>Payment Verification</strong>
+                    <p>Our accounts office will verify your payment within 24-48 hours.</p>
+                </li>
+                <li>
+                    <strong>Receive Confirmation</strong>
+                    <p>You will receive an SMS confirmation once payment is verified.</p>
+                </li>
+                <li>
+                    <strong>Fee Statement Update</strong>
+                    <p>Your child's fee statement will be updated within 72 hours of payment verification.</p>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="info-box">
+            <h2>Our Commitment</h2>
+            <p>At Wachoro Boys High School, we are committed to providing a transparent, secure, and efficient fee payment process. Our accounts office is available to assist with any payment-related inquiries and ensure a smooth experience for all parents and guardians.</p>
+        </div>
+        
+        <div class="contact-section">
+            <h2>Need Assistance with Fee Payment?</h2>
+            <p>For inquiries regarding fee payments, please contact our accounts office:</p>
+            <p>Email: accounts@wachoroboys.sc.ke | Phone: +254 712 345 679 (Accounts Office)</p>
+            <p>Office Hours: Monday-Friday, 8:00 AM - 4:00 PM</p>
+            <a href="#" class="btn">Download Fee Structure</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Wachoro Boys High School | P.O. Box 12345, Wachoro | Phone: +254 712 345 678 | Email: info@wachoroboys.sc.ke</p>
+            <p>"Education for a brighter future"</p>
+            <p>© 2023 Wachoro Boys High School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
