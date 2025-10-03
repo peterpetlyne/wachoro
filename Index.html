@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WACHORO BOYS HIGH SCHOOL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a4b8c;
+            --secondary: #f8c300;
+            --accent: #2e8b57;
+            --light: #77a7f0;
+            --dark: #333;
+        }
+        
+        body {
+            background-color: rgb(148, 179, 245);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d2d5e 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li:hover > a {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown {
+            position: absolute;
+            background-color: rgb(113, 133, 247);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            display: none;
+            top: 100%;
+            left: 0;
+            z-index: 100;
+        }
+        
+        .dropdown li a {
+            color: var(--dark);
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown li a:hover {
+            background-color: #70a3f0;
+            color: var(--primary);
+        }
+        
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+        
+        /* Top Right Menu */
+        .top-right-menu {
+            position: relative;
+        }
+        
+        .menu-toggle {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle:hover {
+            background: #e6b400;
+        }
+        
+        .full-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgb(152, 168, 253);
+            width: 300px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            display: none;
+            z-index: 1000;
+            padding: 15px;
+            max-height: 70vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary) #f0f0f0;
+        }
+        
+        .full-menu::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .full-menu::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .full-menu::-webkit-scrollbar-thumb {
+            background-color: var(--secondary);
+            border-radius: 4px;
+        }
+        
+        .full-menu.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .menu-section {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .menu-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .menu-section h3 {
+            color: var(--primary);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .menu-section h3 i {
+            color: var(--secondary);
+        }
+        
+        .menu-section ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+        
+        .menu-section li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 5px;
+        }
+        
+        .menu-section li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .menu-section a {
+            color: var(--dark);
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+        }
+        
+        .menu-section a:hover {
+            background-color: #f8f8f8;
+            color: var(--primary);
+            padding-left: 15px;
+            border-left: 2px solid var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slideshow {
+            height: 100%;
+            position: relative;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 30px;
+        }
+        
+        .slide-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .slide-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+        
+        /* Moto Section */
+        .moto-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .moto-section h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .moto-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .moto-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .moto-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+        
+        .moto-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .moto-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .moto-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d2d5e 100%);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .top-right-menu {
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .dropdown {
+                width: 100%;
+                position: static;
+                display: none;
+                box-shadow: none;
+            }
+            
+            nav ul li:hover .dropdown {
+                display: block;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .slide-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .slide-content p {
+                font-size: 1rem;
+            }
+            
+            .moto-card {
+                width: 100%;
+            }
+            
+            .full-menu {
+                width: 280px;
+                right: -50px;
+            }
+            
+            .full-menu:before {
+                right: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="images\Dayam Tech Logo2.jpg">
+                <div class="logo-text">
+                    <h1>WACHORO BOYS HIGH SCHOOL</h1>
+                    <p>Education for a brighter future</p>
+                </div>
+            </div>
+            
+            <!-- Top Right Menu -->
+            <div class="top-right-menu">
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i> All Pages
+                </button>
+                <div class="full-menu">
+                    <div class="menu-section">
+                        <h3><i class="fas fa-info-circle"></i> About Us</h3>
+                        <ul>
+                            <li><a href="school history.html">School History</a></li>
+                            <li><a href="board of management.html">Board of Management</a></li>
+                            <li><a href="administration.html">Administration</a></li>
+                            <li><a href="principal.html">Principal</a></li>
+                            <li><a href="teachers & staff.html">Teachers & Staff</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-section">
+                        <h3><i class="fas fa-book-open"></i> Academics</h3>
+                        <ul>
+                            <li><a href="school perfomance.html">School Performance</a></li>
+                            <li><a href="subjects offered.html">Subjects Offered</a></li>
+                            <li><a href="co-curriculum activities.html">Co-curriculum Activities</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-section">
+                        <h3><i class="fas fa-user-graduate"></i> Admission</h3>
+                        <ul>
+                            <li><a href="student admission.html">Student Admission</a></li>
+                            <li><a href="transfers.html">Transfers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-section">
+                        <h3><i class="fas fa-money-bill-wave"></i> Finance</h3>
+                        <ul>
+                            <li><a href="fee payment process.html">Fee Payment Process</a></li>
+                            <li><a href="fee structure.html">Fee Structure</a></li>
+                            <li><a href="scholarships.html">Scholarships</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-section">
+                        <h3><i class="fas fa-photo-video"></i> Media Center</h3>
+                        <ul>
+                            <li><a href="students life.html">Student's Life</a></li>
+                            <li><a href="job vacancies.html">Job Vacancies</a></li>
+                            <li><a href="tenders.html">Tenders</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-section">
+                        <h3><i class="fas fa-address-card"></i> Contact</h3>
+                        <ul>
+                            <li><a href="location.html">Location</a></li>
+                            <li><a href="phone and email.html">Phone & Email</a></li>
+                            <li><a href="inquiry form.html">Inquiry Form</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slideshow -->
+    <section class="hero">
+        <div class="slideshow">
+            <div class="slide active" style="background-image: url('images/welcome.jpg');">
+                <div class="slide-content">
+                    <h2>Welcome to Wachoro Boys</h2>
+                    <p>Excellence in Education Since 1985</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/IMG_20250513_105504_014.jpg');">
+                <div class="slide-content">
+                    <h2>Quality Learning Environment</h2>
+                    <p>Modern classrooms and dedicated teachers</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/IMG_20250515_094040_000.jpg');">
+                <div class="slide-content">
+                    <h2>Sports & Activities</h2>
+                    <p>Developing well-rounded individuals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moto, Vision, Mission Section -->
+    <section class="moto-section">
+        <div class="container">
+            <h2>Our Foundation</h2>
+            <div class="moto-content">
+                <div class="moto-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Our Motto</h3>
+                    <p>Education for a brighter future</p>
+                </div>
+                <div class="moto-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To be a center of academic excellence that nurtures holistic development and produces future leaders</p>
+                </div>
+                <div class="moto-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To provide quality education through innovative teaching, character formation, and nurturing of talents in a conducive environment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> P.O Box 123-45600, Wachoro</p>
+                    <p><i class="fas fa-phone"></i> +254 712 345 678</p>
+                    <p><i class="fas fa-envelope"></i> info@wachoroboys.ac.ke</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="1 index WACHORO HIGH SCHOOL.html">Home</a></li>
+                        <li><a href="school history.html">About Us</a></li>
+                        <li><a href="school perfomance.html">Academics</a></li>
+                        <li><a href="student admission.html">Admission</a></li>
+                        <li><a href="phone and email.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy; 2025 Wachoro Boys High School. All rights reserved by Petlyne Dev Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
+            
+            // Full menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const fullMenu = document.querySelector('.full-menu');
+            
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                fullMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!fullMenu.contains(e.target) && e.target !== menuToggle) {
+                    fullMenu.classList.remove('active');
+                }
+            });
+            
+            // Prevent menu from closing when scrolling inside it
+            fullMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>
